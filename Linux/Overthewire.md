@@ -2,7 +2,7 @@
 
 The 'Bandit Wargame' is a free resource that allows even beginners to get a taste of and learn Linux scripting. The game operates via a level system, with each level presenting more complex scenarios to resolve.
 
-Note that once you progress through each level you will have to exit and change the 'X' in accordance with the level you are in: ssh bandit'X'@bandit.labs.overthewire.org -p 2220
+_Note that once you progress through each level you will have to exit and change the 'X' in accordance with the level you are in: ssh bandit'X'@bandit.labs.overthewire.org -p 2220_
 
 
 
