@@ -16,7 +16,7 @@ Explanation: This checks if you’re connected to the correct GitHub repository.
 ## Step 3:  
 Stage Your Changes:  
 Command: git add .  
-Explanation: This adds all modified files. To add a specific file, use git add <filename>.
+Explanation: This is a quick way to stage all changes in the current directory and below. It simplifies the process by allowing you to stage everything at once, rather than adding each file individually. To add a specific file, use git add <filename>.
 
 ## Step 4:
 Commit Your Changes:  
