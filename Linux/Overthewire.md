@@ -59,7 +59,7 @@ Objective: The password for the next level is stored somewhere on the server and
 Solution: find / -user bandit7 -group bandit6 -size 33c 2>/dev/null  
 Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj  
 Comments: '/' specifies the search starts from the root directory.
-  
+
 - 'user bandit7' finds files owned by the user bandit7.  
 - 'group bandit6' finds files owned by the group bandit6.  
 - 'size 33c' looks for files that are 33 bytes in size (c stands for characters).  
@@ -97,9 +97,9 @@ Binary Conversion: Hi in binary is 01001000 01101001.
 Base64 Encoding: The binary is grouped and converted into characters: SGk=.  
 Now, SGk= is the Base64-encoded version of Hi.
 
-When is Base64 Used?
-Emails: To safely send attachments.
-Web: To embed images or files in HTML/CSS.
-APIs: To send binary data (like files) as part of a JSON payload.
+When is Base64 Used?  
+Emails: To safely send attachments.  
+Web: To embed images or files in HTML/CSS.  
+APIs: To send binary data (like files) as part of a JSON payload.  
 In Short, Base64 encoding makes it possible to send and store any type of data as text, which is easier to handle in many systems and applications.
 
