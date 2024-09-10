@@ -55,9 +55,11 @@ Objective: The password for the next level is stored somewhere on the server and
 - owned by user bandit7  
 - owned by group bandit6  
 - 33 bytes in size  
+
 Solution: find / -user bandit7 -group bandit6 -size 33c 2>/dev/null  
 Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj  
-Comments: '/' specifies the search starts from the root directory.  
+Comments: '/' specifies the search starts from the root directory.
+  
 - 'user bandit7' finds files owned by the user bandit7.  
 - 'group bandit6' finds files owned by the group bandit6.  
 - 'size 33c' looks for files that are 33 bytes in size (c stands for characters).  
