@@ -8,8 +8,11 @@ Welcome to my space where I’m diving into Linux and Bash scripting! 🎉
 
 - 👐 **Hands-On Projects:** Scripts and automation goodies I’ve been working on.  
 
-- 🧠 **Tips & Tricks:** What I’ve learned along the way and some handy tips.  
+- 🧠 **Tips & Tricks:** What I’ve learned along the way and some handy tips.
+
+## Want to contribute?
 
 Whether you’re just curious, a fellow Linux fan, or looking to see what I’ve been up to, I hope you find something useful here. Feel free to explore, ask questions, or even share your own insights!
 
-Let’s get scripting! 🚀
+## Stay updated
+Follow this repo and keep an eye on any new updates. Let’s get scripting! 🚀
