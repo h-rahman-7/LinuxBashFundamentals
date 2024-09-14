@@ -17,7 +17,7 @@ Portability: Ensures the script runs with Bash on any system.
 Consistency: Executes the script with Bash, even if you're using a different shell.
 
 ## Bash Script Arguments
-`Arguments;` can be added to a bash script after the script’s name. Once provided they can be accessed by using $(position in the argument list). For example, the first argument can be accessed with $1, the second with $2, the third with $3, etc.
+`Arguments:` can be added to a bash script after the script’s name. Once provided they can be accessed by using $(position in the argument list). For example, the first argument can be accessed with $1, the second with $2, the third with $3, etc.
 
 #!/bin/bash
 '# For a script invoked by saycolors red green blue
