@@ -37,14 +37,40 @@ greeting="Hello"
 echo $greeting
 
 ## Bash script comparison operators
-`Operators:` In bash scripting, strings are compared using the == (Equal) and != (Not equal) operators.
+`Operators:` Bash Comparison Operators
+Bash scripts use specific operators for comparing numbers and strings.
+
+`Number Comparison Operators:`  
+-eq: Equal  
+-ne: Not equal  
+-lt: Less than  #
+-le: Less than or equal  
+-gt: Greater than  
+-ge: Greater than or equal  
+-z: Is null (checks if a string is empty)  
+Example: If $index is less than 5, print it:
+
+if [ "$index" -lt 5 ]; then  
+ echo "$index"  
+  fi
+
+`String Comparison Operators:`  
+==: Equal  
+!=: Not equal  
+When comparing strings, always use quotes around variables to avoid errors with empty values or spaces.
+
+Example: Compare if $foo equals $bar:
+
+if [ "$foo" == "$bar" ]; then  
+    echo "Strings are equal"  
+fi
 
 ## Bash Aliases
 `Aliases:` are shortcuts for longer commands. You use them to create shorter or easier-to-remember commands for running scripts or commands in Bash.
 
-How to Create an Alias
-Basic Alias:
+How to Create an Alias  
+Basic Alias:  
 alias shortname='longer_command'
 
-Example:
+Example:  
 alias ll='ls -la'
