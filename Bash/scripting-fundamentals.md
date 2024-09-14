@@ -50,30 +50,32 @@ alias shortname='longer_command'
 Example:  
 alias ll='ls -la'
 
+
+
 ## Bash script comparison operators
 
-`Operators:` Bash Comparison Operators
+### Operators: Bash Comparison Operators
 Bash scripts use specific operators for comparing numbers and strings.
 
- `Number Comparison Operators:`
+### Number Comparison Operators:
 
--eq: Equal  
--ne: Not equal  
--lt: Less than  #
--le: Less than or equal  
--gt: Greater than  
--ge: Greater than or equal  
--z: Is null (checks if a string is empty)  
+`-eq:` Equal  
+`-ne:` Not equal  
+`-lt:` Less than  #
+`-le:` Less than or equal  
+`-gt:` Greater than  
+`-ge:` Greater than or equal  
+`-z:` Is null (checks if a string is empty)  
 Example: If $index is less than 5, print it:
 
 if [ "$index" -lt 5 ]; then  
  echo "$index"  
   fi
 
- `String Comparison Operators:`
+### String Comparison Operators:
 
-==: Equal  
-!=: Not equal  
+`==:` Equal  
+`!=:` Not equal  
 When comparing strings, always use quotes around variables to avoid errors with empty values or spaces.
 
 Example: Compare if $foo equals $bar:
@@ -84,58 +86,60 @@ if [ "$foo" == "$bar" ]; then
 
 fi
 
- `File Comparison Operators`
 
--e  
+### File Comparison Operators
+
+`-e`  
 Description: Checks if a file exists.  
 Example: [ -e "$file" ] returns true if the file exists.
 
--f  
+`-f`  
 Description: Checks if a file is a regular file (not a directory or other special type).  
 Example: [ -f "$file" ] returns true if it is a regular file.
 
--d  
+`-d`  
 Description: Checks if a file is a directory.  
 Example: [ -d "$dir" ] returns true if it is a directory.
 
--r  
+`-r`  
 Description: Checks if a file has read permission.  
 Example: [ -r "$file" ] returns true if the file is readable.
 
--w  
+`-w`  
 Description: Checks if a file has write permission.  
 Example: [ -w "$file" ] returns true if the file is writable.
 
--x  
+`-x`  
 Description: Checks if a file has execute permission.  
 Example: [ -x "$file" ] returns true if the file is executable.
 
- `Logical Operators`
 
-&&  
+### Logical Operators
+
+`&&`  
 Description: Logical AND. Both conditions must be true.  
 Example: [ $a -eq 1 ] && [ $b -eq 2 ] returns true if both conditions are true.
 
-||  
+`||`  
 Description: Logical OR. At least one condition must be true.  
 Example: [ $a -eq 1 ] || [ $b -eq 2 ] returns true if either condition is true.
 
-!  
+`!`  
 Description: Logical NOT. Reverses the condition.  
 Example: [ ! -e "$file" ] returns true if the file does not exist.
 
 
-`Additional Special Parameters`
+### Additional Special Parameters
 
 `$#`  
 Description: This retuns the number of arguments that passed in, it holds the count of arguments  
 Example: echo "Number of arguments: $#"
 
-$0  
+`$0`  
 Description: This is a special parameter that returns the name of the script  
 Example: echo "Script Name: $0"
 
-$1 # Also applies to $2, 3, 4 etc  
+`$1` # Also applies to $2, 3, 4 etc  
 Description: This is returns the first line of the command line output  
 Example: echo "First argument: $1"
 
