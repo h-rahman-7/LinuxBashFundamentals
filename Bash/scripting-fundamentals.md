@@ -36,6 +36,16 @@ Consistency: Executes the script with Bash, even if you're using a different she
 greeting="Hello"
 echo $greeting
 
+## Bash Aliases
+`Aliases:` are shortcuts for longer commands. You use them to create shorter or easier-to-remember commands for running scripts or commands in Bash.
+
+How to Create an Alias  
+Basic Alias:  
+alias shortname='longer_command'
+
+Example:  
+alias ll='ls -la'
+
 ## Bash script comparison operators
 `Operators:` Bash Comparison Operators
 Bash scripts use specific operators for comparing numbers and strings.
@@ -65,12 +75,61 @@ if [ "$foo" == "$bar" ]; then
     echo "Strings are equal"  
 fi
 
-## Bash Aliases
-`Aliases:` are shortcuts for longer commands. You use them to create shorter or easier-to-remember commands for running scripts or commands in Bash.
+`File Comparison Operators`
 
-How to Create an Alias  
-Basic Alias:  
-alias shortname='longer_command'
+-e
+Description: Checks if a file exists.
+Example: [ -e "$file" ] returns true if the file exists.
 
-Example:  
-alias ll='ls -la'
+-f
+Description: Checks if a file is a regular file (not a directory or other special type).
+Example: [ -f "$file" ] returns true if it is a regular file.
+
+-d
+Description: Checks if a file is a directory.
+Example: [ -d "$dir" ] returns true if it is a directory.
+
+-r
+Description: Checks if a file has read permission.
+Example: [ -r "$file" ] returns true if the file is readable.
+
+-w
+Description: Checks if a file has write permission.
+Example: [ -w "$file" ] returns true if the file is writable.
+
+-x
+Description: Checks if a file has execute permission.
+Example: [ -x "$file" ] returns true if the file is executable.
+
+`Logical Operators`
+
+&&
+Description: Logical AND. Both conditions must be true.
+Example: [ $a -eq 1 ] && [ $b -eq 2 ] returns true if both conditions are true.
+
+||
+Description: Logical OR. At least one condition must be true.
+Example: [ $a -eq 1 ] || [ $b -eq 2 ] returns true if either condition is true.
+
+!
+Description: Logical NOT. Reverses the condition.
+Example: [ ! -e "$file" ] returns true if the file does not exist.
+
+
+`Additional Special Parameters`
+
+$#
+Description: This retuns the number of arguments that passed in, it holds the count of arguments
+Example: echo "Number of arguments: $#"
+
+$0
+Description: This is a special parameter that returns the name of the script
+Example: echo "Script Name: $0"
+
+$1 # Also applies to $2,3,4 etc
+Description: This is returns the first line of the command line output
+Example: echo "First argument: $1"
+
+$@
+Description: This variable echos all the arguments that have been passed in.
+Example: echo "All args: $@"
