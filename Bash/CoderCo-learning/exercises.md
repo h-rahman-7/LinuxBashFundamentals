@@ -2,7 +2,8 @@
 
 ![Alt Text](image1.png)
 
-Understanding ${file%.txt}
+Understanding `${file%.txt}`  
+
 `${file%.txt}` is a Bash expression that removes the .txt part from a filename.
 
 Think of it as:
@@ -338,7 +339,7 @@ greet_person() {              # second function
 - we can call the function with different arguments/parameters i.e. Ahmed and Sam (see [functions2.sh](./functions2.sh)) providing the necessary data for them to operate on
 
 
-### Special parameters: `$#, $0, $#`
+### Special parameters: `$#, $0, $#, @?`
 
 - these can also be accessed in functions
 ```
@@ -350,10 +351,21 @@ print_args() {
     echo "First argument: $1"
     echo "Second argument: $2"
     echo "All arguments: $@"
+    echo "exit status code: @?
 }
 
 print_args "Alice" "Bob" "Ahmed"
 ```
+### Special Variable `$?`
+
+The special variable `$?` in Bash represents the exit status of the last executed command.
+
+**Explanation:**
+- Every command in Linux returns an exit status when it finishes.
+- This status is a number that tells whether the command was successful or not.
+- If a command runs successfully, it returns `0`.
+- If a command fails, it returns a non-zero value (usually between `1–255`).
+
 
 ## User inputs in functions (see [user-inputs](./user-inputs.sh))
 
@@ -497,3 +509,49 @@ Number of files in ./: 10
 | `get_file_count "./"` | Calls the function for the current directory (`./`). |
 
 
+## Exit codes
+
+- Whenever a command or script ends it returns an exit code to the system
+- this is a numerical value that represents whether the command/script was successful
+- `exit code 0 = successful`
+- `exit code 1 = unsuccessful or error`
+
+### set -e (catches errros immediately)
+
+- this is a set command that it positioned at the start of the script. It stops a script executing as soon as a command returns <>0 exit code.
+- see [set-e.sh](./set-e.sh) there are two echo commands. But we have used set -e. 
+- we are trying to run a  non existent command, this will obviously return a <>0 error code, meaning the set -e should then stop the script immediately. 
+- we can confirm this because the script will return "Before the script"
+
+### set -u
+
+- forces bash script to stop if it encounters a non-initiliased variable
+- it helps prevent scenarios where missing data could lead to incorrect results or irregular behaviour
+see [set-u.sh](./set-u.sh) and [set-u2.sh](./set-u2.sh) - these will fail because the variable X and W has not been specified, repsectively.
+
+
+### set -x
+
+- See [set-x.sh](./set-x.sh) and [set-x2.sh](./set-x2.sh) these print each command that will be executed to the terminal _before_ it is actually executed
+- useful for debugging when you want to follow the flow of your script for troubleshooting
+- can disable this by using `set+x`
+
+### set -eux
+
+- can use all of these options at once
+- this will stop the script of the error (-e), of an unitialised variable (-u) and print each command before execution (set-x)
+
+### more set commands
+
+- set -o nonunset
+- set -o errexit
+- set -o pipefail 
+    - incredible useful setting that causes a pipeline to return the exit status of the last command that exitted with a <>0 status 
+    - see [set-o-pipefail.sh](./set-o-pipefail.sh) this script will not even hit the grep command because the file we are trying to cat does not even exist and so will fail
+
+
+## File Checksums
+
+- checksums are very useful for when you want to compare/check the integrity of a file over time or across systems
+- we can use it to compare two different checksums and see if their values match
+- see [checksums.sh](./checksums.sh) to see how this is scripted.
