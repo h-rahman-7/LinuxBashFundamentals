@@ -306,15 +306,194 @@ function_name() { #configuring the function and what code to run
 function_name #calling the function using the name given and outputs the greeting when invoked
 ```
 
-functions can also accept parameters which allows us to pass data to them, making them more dynamic and reusable
+- functions can also accept parameters which allows us to pass data to them, making them more dynamic and reusable (see [functions2.sh](functions2.sh))
+
+### Recap
+
+- functions are defined using function_name followed by () and then curly braces {} and the code is encapsulated in the braces
+- functions can be called using the function_name
+- we can accept parameters to make them more dynamic and reusable
 
 
-## Functional parameters
+## Parameters in Functions
 
 ![alt text](./image3.png)
 
-## Handling bad data
+- parameters allow us to pass data to functions making them more versatile and adaptable
+- function parameters provide a way to pass data to functions, enabling them to perform specific tasks based on provided inputs
+- different types of parameters:  
+    - *positional parameters*
+    - *special parameters*
+
+### Positional parameters example:
+```
+greet_person() {              # second function
+    local name="$1"           # a local variable called name and make that equal to the first element passed in as a paramter
+    echo "Hello name: $name!"
+```
+
+- we are defining a function called `greet-person` that accepts a positional parameter `name`
+- the value of the positional parameter is stored in a `local variable` called name
+- and the function uses it to greet the person
+- we can call the function with different arguments/parameters i.e. Ahmed and Sam (see [functions2.sh](./functions2.sh)) providing the necessary data for them to operate on
+
+
+### Special parameters: `$#, $0, $#`
+
+- these can also be accessed in functions
+```
+#!/bin/bash
+
+print_args() {
+    echo "Number of arguments: $#"
+    echo "Name of script: $0"
+    echo "First argument: $1"
+    echo "Second argument: $2"
+    echo "All arguments: $@"
+}
+
+print_args "Alice" "Bob" "Ahmed"
+```
+
+## User inputs in functions (see [user-inputs](./user-inputs.sh))
+
+- user input allows our script to interact with users, making them more dynamic and responsive
+
+```
+#!/bin/bash
+
+greet_user() {
+    echo "What is your name?" # ask the user for their name
+    read name                # reads the user's input and store it in the variable name. Without read, the script wouldn't be able to capture what the user types.
+    echo "Hello $name!"      # print out the user's name they have provided
+}
+
+greet_user
+```
+
+### Why do we need the read?
+- Without read, the script wouldn't be able to capture what the user types.
+- This pauses the script and waits for the user to type something.
+- The text the user enters gets stored in the variable name.
+- If we remove this line, the script will not capture any input.
+- we can also incorporate user inputs and parameters into a script see [user.inputs2.sh](./user-inputs2.sh)
+
+
+
+
+## Handling bad data - see [handling-bad-data.sh](./handling-bad-data.sh)
 
 - Focussing on handling bad data in functions
-- could be unexpected user inputs that may cause errors or undesired behaviours in your bash scripts
+- bad data could be unexpected user inputs that may cause errors or undesired behaviours in your bash scripts
 - by implementing proper error handling techniques, can ensure functions handle bad data and provide informative feedback to the user
+- can achieve this using conditional statements to check validity of the input entered
+
+### Input sanitisation - see [input-sanitisation.sh](./input-sanitisation.sh)
+
+- another technique to handle bad data; input sanitisation - see [input-sanitisation.sh](./input-sanitisation.sh)
+- this involves cleaning and transforming user inputs to ensure user inputs meet the required format or constraints
+
+
+## Piping within functions
+
+_This script **counts the number of files in a given directory** and prints the result._
+
+---
+
+### **Line-by-Line Breakdown**
+
+#### **1. The Shebang Line**
+```bash
+#!/bin/bash
+```
+- This tells the system to **run the script using Bash**.
+- It should always be the **first line** of a Bash script.
+
+---
+
+#### **2. Defining a Function**
+```bash
+get_file_count() {
+```
+- This **defines a function** named `get_file_count`.  
+- A function **groups commands together** so you can call them later.
+
+---
+
+#### **3. Storing the First Input Argument in a Variable**
+```bash
+local directory=$1
+```
+- **`$1`** represents the **first argument** passed to the function.
+- The `local` keyword means the variable **only exists inside the function**.
+- This stores the **directory name** provided when calling the function.
+
+✅ **Example:**  
+If you call `get_file_count "./documents"`, then:  
+- `$1` becomes `"./documents"`
+- `directory="./documents"`
+
+---
+
+#### **4. Declaring Another Variable**
+```bash
+local file_count
+```
+- Creates an **empty variable** named `file_count`.  
+- It will later store the **number of files in the directory**.
+
+---
+
+#### **5. Counting the Number of Files**
+```bash
+file_count=$(ls "$directory" | wc -l)
+```
+- `ls "$directory"` → **Lists** all files in the directory.  
+- `wc -l` → **Counts the number of lines** (which represents the number of files).  
+- `$( ... )` → **Captures** the output of the command and stores it in `file_count`.
+
+✅ **Example:**  
+If the directory contains **5 files**, `ls "$directory" | wc -l` outputs `5`, so:  
+- `file_count=5`
+
+---
+
+#### **6. Printing the Result**
+```bash
+echo "Number of files in $directory: $file_count"
+```
+- `echo` prints the **number of files** in the directory.
+
+✅ **Example Output:**
+```
+Number of files in ./documents: 5
+```
+
+---
+
+#### **7. Calling the Function**
+```bash
+get_file_count "./"
+```
+- This **calls** the `get_file_count` function and passes `"./"` as the directory.
+- `"./"` means **the current directory**.
+
+✅ **If the current folder has 10 files, the output will be:**
+```
+Number of files in ./: 10
+```
+
+---
+
+### **Final Recap**
+| **Line** | **What It Does** |
+|----------|-----------------|
+| `#!/bin/bash` | Runs the script using Bash. |
+| `get_file_count() {` | Defines a function named `get_file_count`. |
+| `local directory=$1` | Stores the first argument (`$1`) as `directory`. |
+| `local file_count` | Declares an empty variable `file_count`. |
+| `file_count=$(ls "$directory" | wc -l)` | Counts the number of files in `directory`. |
+| `echo "Number of files in $directory: $file_count"` | Prints the file count. |
+| `get_file_count "./"` | Calls the function for the current directory (`./`). |
+
+

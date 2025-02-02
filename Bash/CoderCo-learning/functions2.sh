@@ -12,3 +12,4 @@ greet_person() {              # second function
 }
 
 greet_person "Ahmed"          # call the function and pass in the name "Ahmed"  as a parameter
+greet_person "Sam"            # call the function and pass in the name "Sam" as a parameter
