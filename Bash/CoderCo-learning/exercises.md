@@ -53,9 +53,41 @@ $ echo $PATH
 - allows flexibility and dynamic scripts (see [arithmetic.sh](./arithmetic.sh) and [arithmetic2.sh](./arithmetic2.sh))
 - arithmetic with parameters allows scripts to be even more dynamic see [arithmetic.sh](./arithmetic3.sharith)
 
+
+
+
+
 ## While loops
 
-### **Understanding This Bash Script Step by Step (For Beginners)**  
+Below is the basic structure of a while loop:  
+
+```
+#!/bin/bash  # Use Bash to run this script
+
+variable(s)
+
+while [ condition ]
+do
+    # Code to be executed
+done  
+```
+
+### Now let's work through an example:
+
+```
+#!/bin/bash  # Use Bash to run this script
+
+fruits=("apple" "banana" "orange")  # Create an array of fruits
+index=0  # Start at the first item (position 0)
+
+while [ $index -lt ${#fruits[@]} ]  # Loop while index is less than the number of fruits
+do
+    echo "Fruit: ${fruits[$index]}"  # Print the fruit at position "index"
+    ((index++))  # Increase index by 1
+done  # End of loop
+```
+
+#### **Understanding This Bash Script Step by Step (For Beginners)**  
 
 This script **prints a list of fruits, one by one**. Let’s go through it slowly and explain each part in **plain English**.
 
@@ -170,3 +202,119 @@ Fruit: orange
 ✅ How to **increase a counter** inside a loop.  
 
 Now you can modify the script to loop through any list you want! 🚀
+
+
+### **Difference Between `while` Loops and `for` Loops in Bash**  
+
+#### **1. `while` Loops – Used When You Don’t Know How Many Times to Repeat**  
+- **Runs as long as a condition is true.**  
+- **Useful when the number of iterations is unknown.**  
+
+**Example: Counting Until a Condition is Met**  
+```bash
+count=1
+while [ $count -le 5 ]; do
+    echo "Count: $count"
+    ((count++))
+done
+```
+**Output:**  
+```
+Count: 1
+Count: 2
+Count: 3
+Count: 4
+Count: 5
+```
+- This loop **keeps running** until `count` reaches `5`.  
+- **Condition-controlled loop.**  
+
+---
+
+#### **2. `for` Loops – Used When You Know How Many Times to Repeat**  
+- **Iterates over a list of items or a fixed range.**  
+- **Useful when you know exactly how many times to loop.**  
+
+**Example 1: Looping Over a List (Array)**
+```bash
+fruits=("apple" "banana" "orange")
+
+for fruit in "${fruits[@]}"; do
+    echo "Fruit: $fruit"
+done
+```
+**Output:**  
+```
+Fruit: apple
+Fruit: banana
+Fruit: orange
+```
+- Runs **once for each item** in `fruits`.
+
+**Example 2: Looping Over a Range of Numbers**
+```bash
+for i in {1..5}; do
+    echo "Iteration: $i"
+done
+```
+**Output:**  
+```
+Iteration: 1
+Iteration: 2
+Iteration: 3
+Iteration: 4
+Iteration: 5
+```
+- Runs **exactly 5 times**.
+
+---
+
+### **Key Differences**
+| Feature | `while` Loop | `for` Loop |
+|---------|------------|----------|
+| **Usage** | When you **don't know** how many times it should run | When you **know** how many times it should run |
+| **Condition-based?** | ✅ Yes | ❌ No |
+| **Used for?** | Waiting for a condition to be met | Iterating over a list or range |
+| **Example Use** | Keep checking a process status | Loop through a list of files |
+
+**Quick Rule:**  
+- Use `while` when **waiting for something to happen**.  
+- Use `for` when **iterating over a known set of items**.
+
+
+## Break and continue - can be used in for/while loops
+
+break = stops the iteration  
+continue = skips that specific iteration in the for/while loop
+
+
+## Basics of Functions
+
+- functions allow us to turn our code into modules, improve script organisation and enhance reusability
+- therefore can use functions throughout our code
+- they encapsulate a set of instructions that can be called and executed whenever needed
+
+```
+    #!/bin/bash
+
+function_name() { #configuring the function and what code to run
+
+
+    # code block to be executed
+}
+
+function_name #calling the function using the name given and outputs the greeting when invoked
+```
+
+functions can also accept parameters which allows us to pass data to them, making them more dynamic and reusable
+
+
+## Functional parameters
+
+![alt text](./image3.png)
+
+## Handling bad data
+
+- Focussing on handling bad data in functions
+- could be unexpected user inputs that may cause errors or undesired behaviours in your bash scripts
+- by implementing proper error handling techniques, can ensure functions handle bad data and provide informative feedback to the user
