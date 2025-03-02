@@ -41,7 +41,7 @@
 # Manual/help page
 
 ## Linux
-- linux has a manual page that can be accessed by entering 'man' [argument]. This will give you a list of the manual pages related to that argument e.g. man ls will give information about the 'ls' command and all its additional options
+- linux has a manual page that can be accessed by entering 'man' [argument]. This will give you a list of the manual pages related to that argument e.g. 'man ls' will give information about the 'ls' command and all its additional options
 - you can also search 'man man' to get a manual on how to use the manual command
 
 ## Windows
@@ -61,3 +61,31 @@
 - note how there are many 'bin' folders; this just means the binary folder.
 - the path env variable tells the shell in which directory it needs to look for these commands or programs that we run
 - this happens all behind the scenes when you enter `ls` in your terminal
+
+
+# Intro to the SHELL and other types
+
+- The SHELL is a user interface that provides access to the OS's services 
+- the layer between you and the core of the OS (kernel and hardware)
+    - `User > SHELL > Kernel > Hardware`
+    - translates commands into actions
+
+## Different types of SHELLs:
+- Bash shell
+- Csh/Tsch shell
+- Ksh shell
+- Zsh shell
+- Fish
+
+Each shell above has its own purpose, features and capabilities *but* they all serve the same fundamental purpose; `to help you interact with the system`
+
+- Most linux distributions come with Bash as a default shell. So If you enter `echo $SHELL` in your terminal it will most likely return `/bin/bash`
+
+
+## Zsh shell
+- Highly customisable and has advanced features like improved auto-completion and spell correction 
+
+## Fish shell
+- provides intuitive syntax highlighting and suggestions
+
+_You can check the type of shells available on your system by using `cat /etc/shells`_
