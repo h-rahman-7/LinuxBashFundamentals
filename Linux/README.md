@@ -127,4 +127,22 @@ _You can check the type of shells available on your system by using `cat /etc/sh
 - `k = up`
 - `l = right`
 
+- If you do not want to save and quit run `q!`
+- If you want to save and not exit run `:w`
 - In order to save your edits you need to be in command mode and then `:wq!` 
+
+## VIM navigation
+- to move to the beginning of a line you press `0`
+- to move to the end of a line you press `*`
+- to move word by word press `w`
+- to move backwards by a word press `b`
+- to jump to a specific line (in command mode) press `:[line number]`
+- to search for a specific word (in insert mode) e.g. example, `/example and press enter`
+- if there are multiple occurences, can go to next instance by pressing `n` and previous `N`
+- to delete an entire line press `dd`
+- to delete from the cursor to end of line press `D`
+- to copy (otherwise known as yank) press `y` and to paste `p`
+- to undo press `u`
+- to redo press `ctrl r`
+- to enable syntax highlighting `:syntax on`
+- to enable numbered lines `:set number` and to turn off `:set nonumber`
