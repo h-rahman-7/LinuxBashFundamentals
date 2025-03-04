@@ -89,3 +89,19 @@ Each shell above has its own purpose, features and capabilities *but* they all s
 - provides intuitive syntax highlighting and suggestions
 
 _You can check the type of shells available on your system by using `cat /etc/shells`_
+
+
+# Touch and Echo commands
+
+## Touch 
+- The touch command in linux is primarily used to create _empty_ files but it can also be used to update the _timestamp_ of existing files
+- `touch myfile.txt` will create an empty file
+- everytime you open the myfile.txt using touch, when you run `ls -l` it will update the timestamp
+
+## Echo
+- This is used to display a line of text or a string that is passed as an argument
+- e.g. echo "Hello world!" 
+- you can also redirect (by using `>`) the text to a new file or an existing file e.g. `echo "Hello world" > myfile.txt`
+- If i know type `echo "Hello world-1" > myfile.txt` this will overwrite the previous line
+- you can check this by using the `cat` command to print and output the contents of a file
+- if you do not want to overwrite the file, you can use the append operator `(>>)` comes into play
