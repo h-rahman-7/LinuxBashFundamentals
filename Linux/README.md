@@ -91,17 +91,40 @@ Each shell above has its own purpose, features and capabilities *but* they all s
 _You can check the type of shells available on your system by using `cat /etc/shells`_
 
 
-# Touch and Echo commands
+# Linux Features
 
-## Touch 
+
+## Touch and Echo commands
+
+### Touch 
 - The touch command in linux is primarily used to create _empty_ files but it can also be used to update the _timestamp_ of existing files
 - `touch myfile.txt` will create an empty file
 - everytime you open the myfile.txt using touch, when you run `ls -l` it will update the timestamp
 
-## Echo
+### Echo
 - This is used to display a line of text or a string that is passed as an argument
 - e.g. echo "Hello world!" 
 - you can also redirect (by using `>`) the text to a new file or an existing file e.g. `echo "Hello world" > myfile.txt`
 - If i know type `echo "Hello world-1" > myfile.txt` this will overwrite the previous line
 - you can check this by using the `cat` command to print and output the contents of a file
 - if you do not want to overwrite the file, you can use the append operator `(>>)` comes into play
+
+## 'head' and 'tail' Commands
+
+- these commands are useful for viewing the beginning and ends of a file
+- very helpful when dealing with very large files where you only need to see a few lines from the beginning or end of the file
+- if you want a specific number of lines you can `-n X` e.g. `head -n 5 myfile.txt` 
+- if you want a specific number of lines e.g. lines 6-10, you can make use of `piping (|)` you can run the following `head -n 10 myfile.txt | tail -n 5`
+
+## VIM text editor
+- The VIM command is a powerful text editor in linux 
+- all you have to do is VIM [filename]; if file doesn't exist, it will create it
+- press `i` to insert and make text edits
+- press `v` to enter the visual mode which is used for selecting text
+- to switch between visual mode and command mode all you have to do is press `esc`
+- `h = left`
+- `j = down`
+- `k = up`
+- `l = right`
+
+- In order to save your edits you need to be in command mode and then `:wq!` 
