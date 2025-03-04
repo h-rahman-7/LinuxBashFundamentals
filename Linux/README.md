@@ -153,4 +153,7 @@ _You can check the type of shells available on your system by using `cat /etc/sh
 - you're giving yourself elevated permissions to run commands that only the root user can do
 - note this is only for permitted users 
 - e.g. sudo apt-get update, running without sudo will return a denied permission
+- sudo is useful e.g. when you need to VIM into a file located in the /etc folder. This requires elevated permissions and without sudo it will open the file in read only
+- the sudo command is required when created new users and groups
+
 
