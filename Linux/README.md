@@ -146,3 +146,11 @@ _You can check the type of shells available on your system by using `cat /etc/sh
 - to redo press `ctrl r`
 - to enable syntax highlighting `:syntax on`
 - to enable numbered lines `:set number` and to turn off `:set nonumber`
+
+## The 'sudo' Command!
+- `sudo = super user do`
+- the sudo command allows a `permitted user` (someone given the permission to do this) to run a command as a super user or the root user
+- you're giving yourself elevated permissions to run commands that only the root user can do
+- note this is only for permitted users 
+- e.g. sudo apt-get update, running without sudo will return a denied permission
+
