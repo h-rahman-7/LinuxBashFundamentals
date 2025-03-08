@@ -156,4 +156,26 @@ _You can check the type of shells available on your system by using `cat /etc/sh
 - sudo is useful e.g. when you need to VIM into a file located in the /etc folder. This requires elevated permissions and without sudo it will open the file in read only
 - the sudo command is required when created new users and groups
 
+## The Root user and a dangerous command
+- in some cases you might need to switch to the root user to perform multiple administrative tasks
+- can do this directly using `sudo su` - this allows you to switch to the root user altogether
+    - you will see that the shell path will change in the terminal indicated by the `#`
+- may want to use this if you're running multiple comamnds that require super user permissions and it would be tedious to keep running `sudo` everytime
+- you can verify what user you are by running the `whoami` command that will return `root`
+- _YOU NEED TO VERY CAUTIOUS AS A ROOT USER, DUE TO UNRESTRICTED ACCESS TO THE ENTIRE SYSTEM_
+- to return to the normal user, just enter `exit` in the terminal
+
+### A dangerous command to run as a root user
+- this command is `rm -rf /` 
+- rm = removes
+- -r = recursive
+- -f = forcing
+- / = root directory
+
+- You're telling the system to do is to remove _EVERYTHING_ in the linux file system = breaks the system, deletes everything
+- what makes it even more dangerous, because as a root user there are no prompts and will just do it
+- all sudo commands are logged for security purposes 
+    - you can view the sudo log entries in the directory called `var/log/auth.log`
+    - if i run `sudo tail var/log/auth.log` it will return the last section of sudo commands that were run as a root user  
+
 
